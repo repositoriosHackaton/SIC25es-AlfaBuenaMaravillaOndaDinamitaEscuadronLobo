@@ -1,17 +1,3 @@
-# Nombre del Proyecto
-
-Breve descripción del proyecto.
-
-## Tabla de contenidos
-
-1. [Nombre](#Nombre)
-2. [Descripción](#descripción)
-3. [Arquitectura](#Arquitectura)
-4. [Proceso](#Proceso)
-5. [Funcionalidades](#Funcionalidades)
-6. [Estado del proyecto](#EstadoDelProyecto)
-7. [Agradecimientos](#Agradecimientos)
-
 
 * Nombre del proyecto
 
@@ -23,6 +9,8 @@ El proyecto trata de reconocer el lenguaje de señas salvadoreño (LESSA) e inte
 
 El programa captura en tiempo real fram a frame de la cámara y por medio de la dataset compara los que ve devolviendo en palabras la seña que analiza.
 
+![image alt](https://github.com/repositoriosHackaton/SIC25es-AlfaBuenaMaravillaOndaDinamitaEscuadronLobo/blob/main/video_eurose%C3%B1as.gif?raw=true)
+
 * Arquitectura del proyecto + imagen
 
 Creación del Dataset:
@@ -31,7 +19,7 @@ Para crear la base de datos se tiene un script por medio de opencv toma un video
 
 Para procesar los datos se utiliza mediapipe para leer los puntos de la posición de cada mano, toma 21 características por mano, 3 coordenadas por característica, en la misma se normaliza los datos entre -1 a 1
 
-
+![image alt](https://github.com/repositoriosHackaton/SIC25es-AlfaBuenaMaravillaOndaDinamitaEscuadronLobo/blob/main/creaci%C3%B3n_dataset_neurose%C3%B1a.jpg?raw=true)
 
 Entrenamiento del modelo:
 
@@ -39,10 +27,22 @@ Para entrenar el modelo se utiliza redes neuronales convolucionales (CNN) para d
 
 Por medio de mediapipe se procesa en tiempo real las 126 características, en caso de solo haber una mano se rrellena con 0 a la mano que no se detecta o ambas si se llega a no mostrar ninguna y espera a detectar alguna. Normaliza los datos con los mismos valores que el procesado
 
+![image alt](https://github.com/repositoriosHackaton/SIC25es-AlfaBuenaMaravillaOndaDinamitaEscuadronLobo/blob/main/entrenamiento_CNN_neurose%C3%B1a.jpg?raw=true)
+
 
 Modelo trabajando:
 
 El modelo CNN va detectando frame a frame al momento, comparando en base al ajuste de pesos que se realizó en el entrenamiento, muestra una predicción con un alto índice de confianza.
+
+![image alt](https://github.com/repositoriosHackaton/SIC25es-AlfaBuenaMaravillaOndaDinamitaEscuadronLobo/blob/main/Diagrama_funcionando_modelo_neurose%C3%B1as.jpg?raw=true)
+
+Extensión de Google Chrome:
+
+La extensión de chrome por medio de un .json accede a un servidor local en el cual está alojado todo el programa de Neuroseñas, una vez se inicia la extensión el usuario elige la pantalla
+en la cual quiere que se ejecute, donde lo escoja será donde grabará la pantalla y en momento real irá poniendo subtítulos de lo que se está mostrando.
+
+![image alt[]()](https://github.com/repositoriosHackaton/SIC25es-AlfaBuenaMaravillaOndaDinamitaEscuadronLobo/blob/main/Neurose%C3%B1a_extensi%C3%B3n.jpg?raw=true)
+
 
 * Proceso de desarrollo:
 
@@ -50,12 +50,6 @@ El modelo CNN va detectando frame a frame al momento, comparando en base al ajus
 
 https://github.com/Alexander1251/RedNeuronalLenguajeSe-as/tree/main/datosABC
 https://github.com/Alexander1251/RedNeuronalLenguajeSe-as/tree/main/datos/procesados
-
-Extensión de Google Chrome:
-
-La extensión de chrome por medio de un .json accede a un servidor local en el cual está alojado todo el programa de Neuroseñas, una vez se inicia la extensión el usuario elige la pantalla
-en la cual quiere que se ejecute, donde lo escoja será donde grabará la pantalla y en momento real irá poniendo subtítulos de lo que se está mostrando.
-
 
 
 -Limpieza de datos (img que lo valide)
