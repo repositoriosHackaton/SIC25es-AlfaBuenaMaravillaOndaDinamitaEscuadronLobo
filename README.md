@@ -3,7 +3,6 @@
 
 Neuroseñas
 
-* Breve descripción del proyecto -> Alguna imagen o gif que muestre el proyecto
 
 El proyecto trata de reconocer el lenguaje de señas salvadoreño (LESSA) e interpretarlo a plabaras para la comprensión de quienes no lo saben.
 
@@ -11,7 +10,7 @@ El programa captura en tiempo real fram a frame de la cámara y por medio de la 
 
 ![image alt](https://github.com/repositoriosHackaton/SIC25es-AlfaBuenaMaravillaOndaDinamitaEscuadronLobo/blob/main/video_eurose%C3%B1as.gif?raw=true)
 
-* Arquitectura del proyecto + imagen
+* Arquitectura del proyecto 
 
 Creación del Dataset:
 
@@ -52,7 +51,7 @@ https://github.com/Alexander1251/RedNeuronalLenguajeSe-as/tree/main/datosABC
 https://github.com/Alexander1251/RedNeuronalLenguajeSe-as/tree/main/datos/procesados
 
 
--Limpieza de datos (img que lo valide)
+-Limpieza de datos 
 Al nosotros crear el data set, el script normaliza los datos y solo procesa los datos de los puntos de las manos
 
 -Manejo excepciones/control errores
