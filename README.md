@@ -1,6 +1,6 @@
 
 
-<h1> Neuroseñas <\h1>
+<h1> Neuroseñas </h1>
 
 
 El proyecto trata de reconocer el lenguaje de señas salvadoreño (LESSA) e interpretarlo a plabaras para la comprensión de quienes no lo saben.
