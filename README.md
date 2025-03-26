@@ -40,7 +40,7 @@ Web para interpretacion de señas en reuniones virtuales:
 La web accede a un servidor local en el cual está alojado todo el programa de Neuroseñas, una vez se inicia la extensión el usuario elige la pantalla
 en la cual quiere que se ejecute, una vez seleccionada, la web interpretara en dicha ventana, presentando unos subtitulos con la interpretacion escrita de las señas realizadas en LESSA.
 
-![image alt[]()](https://github.com/repositoriosHackaton/SIC25es-AlfaBuenaMaravillaOndaDinamitaEscuadronLobo/blob/main/Diagrama_web.png?raw=true)
+![image alt[]()](https://github.com/repositoriosHackaton/SIC25es-AlfaBuenaMaravillaOndaDinamitaEscuadronLobo/blob/main/Diagrama_web.jpg?raw=true)
 
 
 * Proceso de desarrollo:
