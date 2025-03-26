@@ -39,7 +39,7 @@ El modelo CNN va detectando frame a frame al momento, comparando en base al ajus
 Extensión de Google Chrome:
 
 La extensión de chrome por medio de un .json accede a un servidor local en el cual está alojado todo el programa de Neuroseñas, una vez se inicia la extensión el usuario elige la pantalla
-en la cual quiere que se ejecute, donde lo escoja será donde grabará la pantalla y en momento real irá poniendo subtítulos de lo que se está mostrando.
+en la cual quiere que se ejecute, una vez seleccionada, la extension interpretara en dicha ventana, presentando unos subtitulos con la interpretacion escrita.
 
 ![image alt[]()](https://github.com/repositoriosHackaton/SIC25es-AlfaBuenaMaravillaOndaDinamitaEscuadronLobo/blob/main/Neurose%C3%B1a_extensi%C3%B3n.jpg?raw=true)
 
