@@ -89,7 +89,7 @@ Modelo lectura de señas
 * Estado del proyecto:
 
 El proyecto se encuentra en un estado avanzado, mas no definitivo,  el modelo ha sido entrenado con el abecedario y algunas frases
-simples de LESSA , mostrando resultados y una fiablidad del (no se cuanto)% en cuanto a el reconocimiento de las señas
+simples de LESSA , mostrando resultados y una fiablidad del 96.54% en cuanto a el reconocimiento de las señas
 
 Se ha estipulado agregar frases mas complejas en un futuro proximo, para poder tener un Datas set mas completo que permita  un uso  real , practico y confiable de este proyecto
 
