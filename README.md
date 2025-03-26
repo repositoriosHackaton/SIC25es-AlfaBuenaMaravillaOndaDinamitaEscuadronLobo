@@ -35,10 +35,10 @@ El modelo CNN va detectando frame a frame al momento, comparando en base al ajus
 
 ![image alt](https://github.com/repositoriosHackaton/SIC25es-AlfaBuenaMaravillaOndaDinamitaEscuadronLobo/blob/main/Diagrama_funcionando_modelo_neurose%C3%B1as.jpg?raw=true)
 
-Extensión de Google Chrome:
+Web para interpretacion de señas en reuniones virtuales:
 
-La extensión de chrome por medio de un .json accede a un servidor local en el cual está alojado todo el programa de Neuroseñas, una vez se inicia la extensión el usuario elige la pantalla
-en la cual quiere que se ejecute, una vez seleccionada, la extension interpretara en dicha ventana, presentando unos subtitulos con la interpretacion escrita.
+La web accede a un servidor local en el cual está alojado todo el programa de Neuroseñas, una vez se inicia la extensión el usuario elige la pantalla
+en la cual quiere que se ejecute, una vez seleccionada, la web interpretara en dicha ventana, presentando unos subtitulos con la interpretacion escrita de las señas realizadas en LESSA.
 
 ![image alt[]()](https://github.com/repositoriosHackaton/SIC25es-AlfaBuenaMaravillaOndaDinamitaEscuadronLobo/blob/main/Neurose%C3%B1a_extensi%C3%B3n.jpg?raw=true)
 
