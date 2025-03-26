@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Modelos y Proceso - Neuroseñas</title>
+  <!-- Bootstrap desde CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #1A5F7A;
+      --secondary-color: #159895;
+      --background-color: #f4f9f9;
+      --text-color: #2C3333;
+    }
+
+    body {
+      background-color: var(--background-color);
+      font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--text-color);
+      line-height: 1.7;
+      padding-bottom: 40px;
+    }
+
+    .navbar-custom {
+      background-color: var(--primary-color);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: #fff !important;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-link {
+      color: rgba(255,255,255,0.8) !important;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: #fff !important;
+    }
+
+    .section-title {
+      margin-top: 30px;
+      margin-bottom: 20px;
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--secondary-color);
+      padding-bottom: 10px;
+    }
+
+    /* Modal Image Gallery Styles */
+    .graph-img {
+      width: 100%;
+      max-width: 350px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .graph-img:hover {
+      transform: scale(1.05);
+    }
+
+    .modal-img {
+      width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+    }
+
+    .modal-dialog {
+      max-width: 90%;
+      max-height: 90%;
+    }
+
+    .modal-content {
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .modal-body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      color: white;
+      font-size: 2rem;
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+    }
+
+    .close-btn:hover {
+      opacity: 1;
+    }
+
+    .content-section {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      margin-bottom: 40px;
+    }
+
+    .graph-description {
+      text-align: center;
+      margin-top: 10px;
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar (remains the same as previous version) -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Neuroseñas</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+         <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link active" href="/modelos">Modelos</a></li>
+            <li class="nav-item"><a class="nav-link" href="/proyecto">Proyecto</a></li>
+         </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <div class="content-section">
+      <h2 class="section-title">Modelos Utilizados y Proceso de Entrenamiento</h2>
+      <p>
+        Nuestro sistema utiliza dos enfoques principales para la traducción en tiempo real:
+      </p>
+      <ul>
+        <li><strong>Modelo CNN</strong>: Se encarga de interpretar la imagen de la mano para identificar letras (fingerspelling). Se ha entrenado utilizando técnicas de clasificación con múltiples capas convolucionales.</li>
+        <li><strong>Modelo LSTM</strong>: Se utiliza para analizar secuencias de movimientos y captar la dinámica de los gestos. Este modelo es especialmente útil para interpretar la continuidad y el flujo en el lenguaje de señas.</li>
+      </ul>
+      <p>
+        El proceso incluyó la recolección y preprocesamiento de datos, la extracción de landmarks con MediaPipe y el entrenamiento individual de cada modelo. A continuación, se muestran algunas de las gráficas de desempeño obtenidas durante el entrenamiento:
+      </p>
+    </div>
+
+    <!-- CNN Performance Section -->
+    <div class="content-section">
+      <h3 class="section-title">Desempeño del Modelo CNN</h3>
+      <div class="row">
+        <div class="col-md-4">
+          <img src="loss_plot.png" alt="Loss Plot CNN" class="graph-img" data-bs-toggle="modal" data-bs-target="#graphModal1">
+          <p class="graph-description">Gráfica de Pérdida</p>
+        </div>
+        <div class="col-md-4">
+          <img src="confusion_matrix.png" alt="Confusión CNN" class="graph-img" data-bs-toggle="modal" data-bs-target="#graphModal2">
+          <p class="graph-description">Matriz de Confusión</p>
+        </div>
+        <div class="col-md-4">
+          <img src="accuracy_plot.png" alt="Accuracy Plot CNN" class="graph-img" data-bs-toggle="modal" data-bs-target="#graphModal3">
+          <p class="graph-description">Gráfica de Precisión</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- LSTM Performance Section -->
+    <div class="content-section">
+      <h3 class="section-title">Desempeño del Modelo LSTM</h3>
+      <div class="row">
+        <div class="col-md-4">
+          <img src="FiguraCNN1.png" alt="Gráfica 1 LSTM" class="graph-img" data-bs-toggle="modal" data-bs-target="#graphModal4">
+          <p class="graph-description">Gráfica de Pérdida</p>
+        </div>
+        <div class="col-md-4">
+          <img src="FiguraCNN2.png" alt="Gráfica 2 LSTM" class="graph-img" data-bs-toggle="modal" data-bs-target="#graphModal5">
+          <p class="graph-description">Gráfica de Precisión</p>
+        </div>
+        <div class="col-md-4">
+          <img src="FiguraCNN3.png" alt="Gráfica 3 LSTM" class="graph-img" data-bs-toggle="modal" data-bs-target="#graphModal6">
+          <p class="graph-description">Evolución del aprendizaje</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Image Galleries -->
+  <div class="modal fade" id="graphModal1" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <button type="button" class="btn-close close-btn" data-bs-dismiss="modal" aria-label="Close">×</button>
+        <div class="modal-body">
+          <img src="loss_plot.png" class="modal-img" alt="Loss Plot CNN">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modals for other images (2-6) would be created similarly -->
+  <div class="modal fade" id="graphModal2" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <button type="button" class="btn-close close-btn" data-bs-dismiss="modal" aria-label="Close">×</button>
+        <div class="modal-body">
+          <img src="confusion_matrix.png" class="modal-img" alt="Confusion Matrix CNN">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="graphModal3" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <button type="button" class="btn-close close-btn" data-bs-dismiss="modal" aria-label="Close">×</button>
+        <div class="modal-body">
+          <img src="accuracy_plot.png" class="modal-img" alt="Accuracy Plot CNN">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="graphModal4" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <button type="button" class="btn-close close-btn" data-bs-dismiss="modal" aria-label="Close">×</button>
+        <div class="modal-body">
+          <img src="FiguraCNN1.png" class="modal-img" alt="LSTM Gráfica 1">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="graphModal5" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <button type="button" class="btn-close close-btn" data-bs-dismiss="modal" aria-label="Close">×</button>
+        <div class="modal-body">
+          <img src="FiguraCNN2.png" class="modal-img" alt="LSTM Gráfica 2">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="graphModal6" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <button type="button" class="btn-close close-btn" data-bs-dismiss="modal" aria-label="Close">×</button>
+        <div class="modal-body">
+          <img src="FiguraCNN3.png" class="modal-img" alt="LSTM Gráfica 3">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

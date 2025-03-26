@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Lenguaje de Señas Salvadoreña - Neuroseñas</title>
+  <!-- Bootstrap desde CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #1A5F7A;
+      --secondary-color: #159895;
+      --background-color: #f4f9f9;
+      --text-color: #2C3333;
+    }
+
+    body {
+      background-color: var(--background-color);
+      font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--text-color);
+      line-height: 1.7;
+    }
+
+    .navbar-custom {
+      background-color: var(--primary-color);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: #fff !important;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-link {
+      color: rgba(255,255,255,0.8) !important;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: #fff !important;
+    }
+
+    .inference-box {
+      width: 800px;
+      height: 600px;
+      margin: auto;
+      border: 4px solid var(--primary-color);
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    .toggle-btn {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background-color: var(--secondary-color);
+      border-color: var(--secondary-color);
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+
+    .info-section {
+      margin-top: 40px;
+      padding: 30px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    .info-section h3 {
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--secondary-color);
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    .info-section p {
+      margin-bottom: 15px;
+    }
+
+    .info-section a {
+      color: var(--secondary-color);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .info-section a:hover {
+      color: var(--primary-color);
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Rest of the HTML remains the same as the original file -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Neuroseñas</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+         <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link active" href="/">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="/modelos">Modelos</a></li>
+            <li class="nav-item"><a class="nav-link" href="/proyecto">Proyecto</a></li>
+         </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Rest of the content remains the same -->
+  <div class="container mt-4">
+    <div class="inference-box">
+      <img src="/video_feed" style="width:100%; height:100%;">
+    </div>
+    
+    <div class="toggle-btn">
+      <button id="toggleInferenceBtn" class="btn btn-primary btn-lg">Desactivar Inferencia</button>
+    </div>
+    
+    <div class="info-section mt-4">
+        <h3>Cómo utilizar el programa de inferencia en tiempo real</h3>
+        <p>
+          <strong>Paso 1:</strong> Permite el acceso a tu cámara web. Si tu navegador solicita permiso, 
+          concédelo para que la aplicación pueda capturar el vídeo en tiempo real.
+        </p>
+        <p>
+          <strong>Paso 2:</strong> Observa el recuadro de vídeo en la parte superior. En él se muestra la 
+          vista de tu cámara y se indica la región donde debes colocar tus manos para que el sistema 
+          las detecte correctamente.
+        </p>
+        <p>
+          <strong>Paso 3:</strong> El botón de “Activar/Desactivar Inferencia” te permite pausar o continuar 
+          el proceso de reconocimiento. Si la inferencia está <em>activada</em>, el sistema analizará 
+          tus gestos en tiempo real y mostrará la traducción en pantalla (y, opcionalmente, la pronunciará 
+          mediante voz sintetizada).
+        </p>
+        <p>
+          <strong>Paso 4:</strong> Para utilizar el modo de detección de letras (fingerspelling), coloca tu 
+          mano en la región de interés marcada en el recuadro. Para gestos que requieren secuencias, 
+          simplemente muévete con naturalidad; el sistema <em>LSTM</em> procesará la transición de los 
+          movimientos y mostrará el resultado en pantalla.
+        </p>
+        <p>
+          Si deseas conocer más detalles sobre los modelos utilizados o sobre el proyecto, 
+          navega a las secciones <a href="/modelos">Modelos</a> y <a href="/proyecto">Proyecto</a>. 
+          ¡Gracias por usar Neuroseñas!
+        </p>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // JavaScript remains the same as original file
+    document.getElementById("toggleInferenceBtn").addEventListener("click", function() {
+      fetch('/toggle_inference', { method: 'POST' })
+        .then(response => response.json())
+        .then(data => {
+          if (data.inference_enabled) {
+            document.getElementById("toggleInferenceBtn").innerText = "Desactivar Inferencia";
+          } else {
+            document.getElementById("toggleInferenceBtn").innerText = "Activar Inferencia";
+          }
+        })
+        .catch(error => console.error('Error:', error));
+    });
+  </script>
+</body>
+</html>
