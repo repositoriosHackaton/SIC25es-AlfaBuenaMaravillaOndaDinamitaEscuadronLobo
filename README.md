@@ -42,6 +42,8 @@ en la cual quiere que se ejecute, una vez seleccionada, la web interpretara en d
 
 ![image alt[]()](https://github.com/repositoriosHackaton/SIC25es-AlfaBuenaMaravillaOndaDinamitaEscuadronLobo/blob/main/Diagrama_web.jpg?raw=true)
 
+Web en funcionamiento:
+(Por agregar gif )
 
 * Proceso de desarrollo:
 
@@ -83,7 +85,12 @@ Modelo lectura de señas
 - Scikitlearning (Entrenamiento del modelo)
 - Pytorch (Entrenamiento del modelo)
 
-- Arquitectura (img)
+  Para elaborar la web:
+- JavaScript (Logica de la web)
+- HTML5 (Formato de la web)
+- CSS (Estetica de la web)
+
+
 
 * Estado del proyecto:
 
